@@ -3,6 +3,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import Items from './pages/Items.jsx'
 import ItemForm from './pages/ItemForm.jsx'
+import Settings from './pages/Settings.jsx'
 import { useAuth } from './hooks/useAuth.js'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
@@ -15,6 +16,7 @@ export default function App() {
           <Link to="/" className="font-semibold">Campus Lost & Found</Link>
           <Link to="/items" className="text-sm">Items</Link>
           {user && <Link to="/items/new" className="text-sm">Report Item</Link>}
+          {user && <Link to="/settings" className="text-sm">Settings</Link>}
         </div>
         <div className="flex items-center gap-2">
           {!user ? (
@@ -41,6 +43,9 @@ export default function App() {
         } />
         <Route path="/items/:id" element={
           <ProtectedRoute><ItemForm /></ProtectedRoute>
+        } />
+        <Route path="/settings" element={
+          <ProtectedRoute><Settings /></ProtectedRoute>
         } />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

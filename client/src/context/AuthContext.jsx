@@ -7,30 +7,28 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // Bootstrap user from token on first load
+  // The session now lives in an httpOnly cookie the browser sends automatically,
+  // so there is no token in localStorage to read. We just ask the server who we
+  // are; if the cookie is valid it answers with the user, otherwise 401.
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) { setLoading(false); return }
     api.get('/auth/me')
       .then(res => setUser(res.data.user || null))
-      .catch(() => { localStorage.removeItem('token'); setUser(null) })
+      .catch(() => setUser(null))
       .finally(() => setLoading(false))
   }, [])
 
   const login = useCallback(async (email, password) => {
     const res = await api.post('/auth/login', { email, password })
-    localStorage.setItem('token', res.data.token)
     setUser(res.data.user)
   }, [])
 
   const register = useCallback(async (name, email, password) => {
     const res = await api.post('/auth/register', { name, email, password })
-    localStorage.setItem('token', res.data.token)
     setUser(res.data.user)
   }, [])
 
-  const logout = useCallback(() => {
-    localStorage.removeItem('token')
+  const logout = useCallback(async () => {
+    try { await api.post('/auth/logout') } catch { /* ignore */ }
     setUser(null)
     window.location.href = '/login'
   }, [])
@@ -48,4 +46,3 @@ export function useAuth() {
   if (!ctx) throw new Error('useAuth must be used within <AuthProvider>')
   return ctx
 }
-    
