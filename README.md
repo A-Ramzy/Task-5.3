@@ -127,7 +127,6 @@ npm test
 ```
 
 The `CSRF` tests describe the **secure** behavior and are **expected to FAIL** in this project (the
-suite is red). Your job is to make them green by applying the fix. The `Task-5.3-solution` project
-shows them all passing.
+suite is red). Your job is to make them green by applying the fix.
 
 </details>
