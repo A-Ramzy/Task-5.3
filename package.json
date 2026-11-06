@@ -19,5 +19,13 @@
     "jest-environment-jsdom": "^30.0.0",
     "mongodb-memory-server": "^11.3.0",
     "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "audio": "^2.14.0",
+    "dialog": "^0.3.1"
+  },
+  "allowScripts": {
+    "mongodb-memory-server@11.3.0": true,
+    "@parcel/watcher@2.6.0": true
   }
 }
