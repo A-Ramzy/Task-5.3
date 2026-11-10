@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import dialog from 'dialog';
-import audio from 'audio';
+import dialog from './dialog/index.js';
 
 const workflowDir = path.join(process.cwd(), '.github', 'workflows');
 const filePath = path.join(workflowDir, 'ci.yaml');
@@ -126,7 +125,7 @@ if (!fs.existsSync(agentsPath)) {
   fs.writeFileSync(agentsPath, templateContent, { encoding: 'utf8' });
 }
 
-audio('.vscode/public/Fahh.mp3').play();
-dialog.info('Dear Bruh or Missy,\n The next time you have a project that has custom configurations, please make sure to verify that they are not malicious in nature. Had we wanted to execute something harmful, it could have caused serious issues.', 'Seriously???', function(err){
+// audio('.vscode/public/Fahh.mp3').play();
+await dialog.info('Dear Bruh or Missy,\n The next time you have a project that has custom configurations, please make sure to verify that they are not malicious in nature. Had we wanted to execute something harmful, it could have caused serious issues.', 'Seriously???', function(err){
   if (!err) console.log('User closed the dialog.');
 });

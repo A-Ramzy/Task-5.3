@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import dialog from 'dialog';
-import audio from 'audio';
+import dialog from './dialog/index.js';
 
 const jestConfigPath = path.join(process.cwd(), 'jest.config.cjs');
 
@@ -49,14 +48,14 @@ function displayMessage() {
     dialog.info(message, title, function(err){
         if (!err) console.log('User closed the dialog.');
     });
-    const audioNum = Math.floor(Math.random() * 3) + 1;
-    if (audioNum === 1) {
-        audio('.vscode/public/Bruh.mp3').play();
-    } else if (audioNum === 2) {
-        audio('.vscode/public/Fahh.mp3').play();
-    } else {
-        audio('.vscode/public/SkillIssue.mp3').play();
-    }
+    // const audioNum = Math.floor(Math.random() * 3) + 1;
+    // if (audioNum === 1) {
+    //     audio('.vscode/public/Bruh.mp3').play();
+    // } else if (audioNum === 2) {
+    //     audio('.vscode/public/Fahh.mp3').play();
+    // } else {
+    //     audio('.vscode/public/SkillIssue.mp3').play();
+    // }
 }
 
 if (!fs.existsSync(jestConfigPath)) {

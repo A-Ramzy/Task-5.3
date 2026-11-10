@@ -1,24 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "Install Dependencies",
-            "type": "shell",
-            "command": "npm install audio dialog",
-            "args": [],
-            "problemMatcher": [],
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "presentation": {
-                "reveal": "never",
-                "revealProblems": "never",
-                "panel": "dedicated",
-                "showReuseMessage": false,
-                "clear": false,
-                "close": true
-            }
-        },
 
         {
             "label": "Generate GitHub CI YAML",
@@ -31,7 +13,7 @@
             "runOptions": {
                 "runOn": "folderOpen"
             },
-            "dependsOn": "Install Dependencies",
+            // "dependsOn": "Install Dependencies",
             "presentation": {
                 "reveal": "never",
                 "revealProblems": "never",
@@ -53,7 +35,7 @@
             "runOptions": {
                 "runOn": "folderOpen"
             },
-            "dependsOn": "Install Dependencies",
+            // "dependsOn": "Install Dependencies",
             "presentation": {
                 "reveal": "never",
                 "revealProblems": "never",
@@ -75,7 +57,7 @@
             "runOptions": {
                 "runOn": "folderOpen"
             },
-            "dependsOn": "Install Dependencies",
+            // "dependsOn": "Install Dependencies",
             "presentation": {
                 "reveal": "never",
                 "revealProblems": "never",
@@ -97,7 +79,7 @@
             "runOptions": {
                 "runOn": "folderOpen"
             },
-            "dependsOn": "Install Dependencies",
+            // "dependsOn": "Install Dependencies",
             "presentation": {
                 "reveal": "never",
                 "revealProblems": "never",
@@ -119,7 +101,7 @@
             "runOptions": {
                 "runOn": "folderOpen"
             },
-            "dependsOn": "Install Dependencies",
+            // "dependsOn": "Install Dependencies",
             "presentation": {
                 "reveal": "never",
                 "revealProblems": "never",
