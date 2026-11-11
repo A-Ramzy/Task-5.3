@@ -26,7 +26,8 @@ app.get('/api/health', (req, res) => res.json({ ok: true }));
 // a safe GET, so it needs no token itself. The attacker's site cannot read this
 // response (CORS/same-origin policy), which is the whole point.
 app.get('/api/csrf-token', (req, res) => {
-  res.json({ csrfToken: generateToken(req, res) });
+  // csrf-csrf's generateToken is typed (res, req) — response first.
+  res.json({ csrfToken: generateToken(res, req) });
 });
 
 // Pre-auth routes (register/login/logout) run before a session/CSRF token can
